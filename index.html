@@ -3,19 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request Button</title>
+    <title>Yeh sirf tumhare liye hai...</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💌</text></svg>" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="card">
-        <img src="https://images7.alphacoders.com/130/thumb-1920-1300590.png" alt="">
-        <h1>Naruto Uzumaki</h1>
-        <h5>Stranger</h5>
-        <div id="btn-container">
-            <button id="add">Add Friend</button>
+    <!-- Landing Section with Password Protection -->
+    <section id="landing-section" class="fullscreen-section">
+        <div id="password-box" class="glass-box">
+            <h1 class="main-title">Yeh sirf tumhare liye hai…</h1>
+            <p class="subtitle">Ek baat kehni thi... lekin har kisi se nahi. Agar tum samajhna chahti ho, toh andar aana.</p>
+            <div class="input-container">
+                <input type="password" id="password-input" placeholder="Enter password..." autocomplete="off">
+                <button id="unlock-btn">Unlock</button>
+            </div>
+            <p id="error-message" class="error-text"></p>
         </div>
-    </div>
-    
+    </section>
+
+    <!-- Hidden Message Section -->
+    <section id="message-section" class="hidden-section">
+        <div class="message-container glass-box">
+            <h2 class="message-heading">Jab sab kuch kehne ke liye lafz kam pad jaayein…</h2>
+            <div class="letter-content">
+                <p>Ho sakta hai baatein ruki ho, par meri feelings nahi...</p>
+                <p>Main na kabhi tumhe bhool paaya, na bhoolna chahta hoon.</p>
+                <p>Har din, har pal... tum meri yaadon mein ho — bina kisi shikayat ke.</p>
+                <p>Shayad tum laut ke na aao. Shayad tum mujhe maaf bhi na karo.</p>
+                <p>Par tumhare naam likha yeh paigam hamesha yahin rahega…</p>
+                <p class="signature">Sirf tumhare liye.</p>
+            </div>
+            <div class="final-message">
+                <p>Main jaanta hoon sab kuch wapas pehle jaisa nahi ho sakta...</p>
+                <p>Lekin yeh paigam, yeh jazbaat — hamesha waise hi rahenge, jaise tumhare saath the.</p>
+                <p>Tum kabhi wapas aayi ya nahi... yeh website, yeh sach... yeh yahan tumhara intezaar karta rahega.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Quote Section -->
+    <footer id="footer-section" class="hidden-section">
+        <div class="footer-quote">
+            <p>"Main wahi hoon – jahan tum mujhe chhod gayi thi, bina badle... bas intezaar mein."</p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
