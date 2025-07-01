@@ -1,62 +1,349 @@
-*{
+/* Reset and Base Styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gilroy';
 }
 
-html,body{
+html, body {
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
 }
 
-body{
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #FFB6C1, #E6E6FA, #FFDAB9, #F8BBD9);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    min-height: 100vh;
+}
+
+/* Animated Background Gradient */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Section Layouts */
+.fullscreen-section {
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: cornflowerblue;
+    padding: 20px;
 }
 
-#card{
-    height: 450px;
-    width: 300px;
-    border-radius: 10px;
-    background-color: white;
-    padding: 30px;
+.hidden-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+    padding: 40px 20px;
+    display: none;
+}
+
+.hidden-section.show {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+}
+
+/* Glassmorphism Design */
+.glass-box {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typography */
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease;
+}
+
+.subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    animation: fadeIn 2s ease;
+}
+
+.message-heading {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #4a4a4a;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-#card img {
-    height: 55%;
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 10px;
-}
-
-#card h1{
-    font-size: 25px;
-    font-weight: 700;
-    margin: 10px 0;
-}
-
-#card h5 {
-    font-size: 25px;
-    color: red;
+/* Input and Button Styles */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     margin-bottom: 20px;
 }
-#card button {
-    background-color: cadetblue;
-    color: #fff;
-    font-weight: 700;
-    padding: 12px 20px;
-    border-radius: 5px;
-    border: none;
-    margin: 5px;
-    cursor: pointer;
 
+#password-input {
+    padding: 15px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    font-size: 1rem;
+    color: #4a4a4a;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
 }
-#card #remove {
-    background-color: #dadada;
-    color: #111;
+
+#password-input::placeholder {
+    color: #888;
+}
+
+#password-input:focus {
+    border-color: rgba(255, 182, 193, 0.8);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.3);
+}
+
+#unlock-btn {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #FFB6C1, #F8BBD9);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#unlock-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #F8BBD9, #FFB6C1);
+}
+
+/* Error Message */
+.error-text {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.error-text.show {
+    opacity: 1;
+}
+
+/* Shake Animation */
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* Message Content */
+.message-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.letter-content {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4a4a4a;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.letter-content p {
+    margin-bottom: 15px;
+    animation: typewriter 0.8s ease forwards;
+    opacity: 0;
+}
+
+.letter-content p:nth-child(1) { animation-delay: 0.2s; }
+.letter-content p:nth-child(2) { animation-delay: 0.4s; }
+.letter-content p:nth-child(3) { animation-delay: 0.6s; }
+.letter-content p:nth-child(4) { animation-delay: 0.8s; }
+.letter-content p:nth-child(5) { animation-delay: 1.0s; }
+
+.signature {
+    font-style: italic;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 20px !important;
+    color: #666;
+    animation-delay: 1.2s !important;
+}
+
+.final-message {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.2rem;
+    color: #8B4B8B;
+    text-align: center;
+    line-height: 1.6;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.final-message p {
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+}
+
+.final-message p:nth-child(1) { animation-delay: 1.5s; }
+.final-message p:nth-child(2) { animation-delay: 1.7s; }
+.final-message p:nth-child(3) { animation-delay: 1.9s; }
+
+@keyframes typewriter {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Footer Quote */
+#footer-section {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.footer-quote {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: #666;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+    animation: glowText 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowText {
+    from {
+        text-shadow: 0 0 5px rgba(255, 182, 193, 0.3);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .glass-box {
+        padding: 30px 20px;
+        margin: 0 10px;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .message-heading {
+        font-size: 1.5rem;
+    }
+    
+    .letter-content {
+        font-size: 1rem;
+    }
+    
+    .final-message {
+        font-size: 1rem;
+    }
+    
+    .input-container {
+        gap: 12px;
+    }
+    
+    #password-input, #unlock-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .glass-box {
+        padding: 25px 15px;
+    }
+    
+    .main-title {
+        font-size: 1.7rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .message-heading {
+        font-size: 1.3rem;
+    }
+    
+    .letter-content {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .final-message {
+        font-size: 0.9rem;
+    }
+    
+    .footer-quote {
+        font-size: 1.1rem;
+    }
 }
