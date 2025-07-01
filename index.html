@@ -3,19 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request Button</title>
+    <title>Tum Meri Wajah Ho - A Message From Heart</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="card">
-        <img src="https://images7.alphacoders.com/130/thumb-1920-1300590.png" alt="">
-        <h1>Naruto Uzumaki</h1>
-        <h5>Stranger</h5>
-        <div id="btn-container">
-            <button id="add">Add Friend</button>
-        </div>
-    </div>
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="https://www.soundjay.com/misc/sounds/piano-theme.mp3" type="audio/mpeg">
+    </audio>
     
+    <!-- Music Toggle Button -->
+    <div id="music-toggle" class="music-btn">
+        <span id="music-icon">🎵</span>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Section 1: Welcome -->
+    <section id="welcome" class="section">
+        <div class="animated-bg"></div>
+        <div class="welcome-content">
+            <div class="center-box" data-aos="fade-in" data-aos-duration="2000">
+                <h1 class="main-title">Tum Meri Wajah Ho...</h1>
+                <p class="subtitle">Yeh website sirf tumhare liye hai...</p>
+                <p class="message">Koi saboot nahi, koi gila nahi... sirf ek paigam:</p>
+                <p class="highlight">Tum mere liye kya ho.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Importance -->
+    <section id="importance" class="section">
+        <div class="importance-content">
+            <h2 class="section-title" data-aos="fade-up">Tere Hone Se...</h2>
+            
+            <div class="message-list">
+                <div class="message-item" data-aos="fade-up" data-aos-delay="200">
+                    <span class="icon">🌼</span>
+                    <p>Tere hone se subah khubsurat lagti hai.</p>
+                </div>
+                
+                <div class="message-item" data-aos="fade-up" data-aos-delay="400">
+                    <span class="icon">💬</span>
+                    <p>Tere lafzon se din banta hai.</p>
+                </div>
+                
+                <div class="message-item" data-aos="fade-up" data-aos-delay="600">
+                    <span class="icon">❤️</span>
+                    <p>Tere naam se dil dhadakta hai.</p>
+                </div>
+                
+                <div class="message-item" data-aos="fade-up" data-aos-delay="800">
+                    <span class="icon">💫</span>
+                    <p>Aur tere bina… sab kuch khaali lagta hai.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Thought -->
+    <section id="thought" class="section">
+        <div class="thought-overlay"></div>
+        <div class="thought-content">
+            <h2 class="section-title" data-aos="fade-up">Main complete kabhi nahi hota...</h2>
+            
+            <div class="thought-text" data-aos="fade-up" data-aos-delay="300">
+                <p>Shayad duniya kehti hai ki waqt sab theek kar deta hai...</p>
+                <p>Par agar tu meri duniya na hoti, toh waqt sirf chal raha hota — main nahi.</p>
+                <p>Tu meri har wajah hai. Har khushi, har dua, har intezaar... tu.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Lock Box -->
+    <section id="lockbox" class="section">
+        <div class="lockbox-content">
+            <h2 class="section-title" data-aos="fade-up">Ek Paigam Dil Se</h2>
+            
+            <div id="password-section" class="password-container" data-aos="zoom-in" data-aos-delay="300">
+                <div class="lock-icon">🔐</div>
+                <p>Yeh khaas message sirf tumhare liye hai...</p>
+                <input type="password" id="password-input" placeholder="Password dalo...">
+                <button id="unlock-btn">Unlock</button>
+                <p class="hint">Hint: tumhara naam 😊</p>
+            </div>
+            
+            <div id="letter-section" class="letter-container" style="display: none;">
+                <div class="letter-content" data-aos="fade-in">
+                    <h3>Mera Dil...</h3>
+                    <p>Tum bina kahe sab kuch keh jaati ho.</p>
+                    <p>Aur main... sirf tumhare hone se khush ho jaata hoon.</p>
+                    <p>Shayad main sabke samne strong hoon,</p>
+                    <p>par tere saamne — bas ek insaan hoon jo tumse mohabbat karta hai.</p>
+                    <div class="signature">- Tumhara</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Ending -->
+    <section id="ending" class="section">
+        <div class="ending-overlay"></div>
+        <div class="ending-content">
+            <div class="final-message" data-aos="fade-in" data-aos-duration="3000">
+                <h2>Mera Dil Tumse Judaa Nahi</h2>
+                <p class="quote">"Aaj bhi main tumse utni hi mohabbat karta hoon...</p>
+                <p class="quote">jitni pehli baar ki thi. Shayad usse zyada."</p>
+                <p class="final-note">Aur agar kabhi tum bhool jao...</p>
+                <p class="final-note">Toh yeh website hamesha tumhe yaad dilayegi — ki tum meri zindagi ki sabse khaas hissa ho.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
