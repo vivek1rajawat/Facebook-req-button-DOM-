@@ -3,16 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request Button</title>
+    <title>Reasons Why You Matter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="card">
-        <img src="https://images7.alphacoders.com/130/thumb-1920-1300590.png" alt="">
-        <h1>Naruto Uzumaki</h1>
-        <h5>Stranger</h5>
-        <div id="btn-container">
-            <button id="add">Add Friend</button>
+    <div class="carousel-container">
+        <h2 class="section-title">Reasons Why You Matter</h2>
+        
+        <div class="carousel">
+            <div class="carousel-track" id="carousel-track">
+                <div class="card active" data-card="1">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop" alt="Reason 1">
+                    <h1>Reason 1</h1>
+                    <h5>You Bring Joy</h5>
+                    <p>Your smile lights up every room you enter and brings happiness to those around you.</p>
+                </div>
+                
+                <div class="card" data-card="2">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=300&fit=crop" alt="Reason 2">
+                    <h1>Reason 2</h1>
+                    <h5>You Are Unique</h5>
+                    <p>There is no one else in the world exactly like you. Your perspective and talents are irreplaceable.</p>
+                </div>
+                
+                <div class="card" data-card="3">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop" alt="Reason 3">
+                    <h1>Reason 3</h1>
+                    <h5>You Make a Difference</h5>
+                    <p>Every action you take, no matter how small, creates ripples that positively impact the world.</p>
+                </div>
+                
+                <div class="card" data-card="4">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=300&fit=crop" alt="Reason 4">
+                    <h1>Reason 4</h1>
+                    <h5>You Are Loved</h5>
+                    <p>You matter to people in ways you might not even realize. Your presence enriches their lives.</p>
+                </div>
+                
+                <div class="card" data-card="5">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop" alt="Reason 5">
+                    <h1>Reason 5</h1>
+                    <h5>You Have Potential</h5>
+                    <p>Your journey is just beginning. You have unlimited potential to grow, learn, and achieve amazing things.</p>
+                </div>
+            </div>
+            
+            <!-- Navigation buttons -->
+            <button class="nav-button prev" id="prev-btn" aria-label="Previous reason">‹</button>
+            <button class="nav-button next" id="next-btn" aria-label="Next reason">›</button>
+        </div>
+        
+        <!-- Dot indicators -->
+        <div class="dot-indicators">
+            <button class="dot active" data-slide="1" aria-label="Go to reason 1"></button>
+            <button class="dot" data-slide="2" aria-label="Go to reason 2"></button>
+            <button class="dot" data-slide="3" aria-label="Go to reason 3"></button>
+            <button class="dot" data-slide="4" aria-label="Go to reason 4"></button>
+            <button class="dot" data-slide="5" aria-label="Go to reason 5"></button>
         </div>
     </div>
     
