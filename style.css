@@ -60,3 +60,58 @@ body{
     background-color: #dadada;
     color: #111;
 }
+
+/* Password section styling */
+#password-section {
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    text-align: center;
+    max-width: 400px;
+}
+
+#password-container {
+    margin: 15px 0;
+}
+
+#password-input {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#unlock-btn {
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#unlock-btn:hover {
+    background-color: #5a9;
+}
+
+#letter-box {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f8ff;
+    border: 2px solid cadetblue;
+    border-radius: 8px;
+}
+
+#letter-box h3 {
+    color: cadetblue;
+    margin-bottom: 10px;
+}
+
+#letter-box p {
+    color: #333;
+    font-size: 16px;
+}

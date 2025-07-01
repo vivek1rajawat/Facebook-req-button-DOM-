@@ -23,3 +23,32 @@ btn.addEventListener("click",function(){
     }
 
 })
+
+// Password validation functionality
+function validatePassword() {
+    const correctPassword = "MadamJi";
+    const passwordInput = document.querySelector("#password-input");
+    const letterBox = document.querySelector("#letter-box");
+    
+    if (passwordInput.value === correctPassword) {
+        letterBox.style.display = "block";
+        passwordInput.style.borderColor = "green";
+        alert("Access granted! The hidden message is now visible.");
+    } else {
+        letterBox.style.display = "none";
+        passwordInput.style.borderColor = "red";
+        alert("Incorrect password. Please try again.");
+    }
+}
+
+// Add event listener for unlock button
+var unlockBtn = document.querySelector("#unlock-btn");
+unlockBtn.addEventListener("click", validatePassword);
+
+// Add event listener for Enter key on password input
+var passwordInput = document.querySelector("#password-input");
+passwordInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        validatePassword();
+    }
+});
