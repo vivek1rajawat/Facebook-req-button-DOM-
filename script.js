@@ -1,8 +1,10 @@
 // Initialize AOS (Animate On Scroll)
-AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 100
+document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
 });
 
 // Background Music Functionality
@@ -12,67 +14,98 @@ const musicIcon = document.getElementById('music-icon');
 let isPlaying = false;
 
 // Music toggle event
-musicToggle.addEventListener('click', function() {
-    if (isPlaying) {
-        backgroundMusic.pause();
-        musicIcon.textContent = '🔇';
-        musicToggle.style.background = 'rgba(255, 255, 255, 0.1)';
-        isPlaying = false;
-    } else {
-        backgroundMusic.play().catch(e => {
-            console.log('Audio autoplay prevented');
-        });
-        musicIcon.textContent = '🎵';
-        musicToggle.style.background = 'rgba(255, 255, 255, 0.3)';
-        isPlaying = true;
-    }
-});
+if (musicToggle) {
+    musicToggle.addEventListener('click', function() {
+        if (isPlaying) {
+            if (backgroundMusic) backgroundMusic.pause();
+            musicIcon.textContent = '🔇';
+            musicToggle.style.background = 'rgba(255, 255, 255, 0.1)';
+            isPlaying = false;
+        } else {
+            if (backgroundMusic) {
+                backgroundMusic.play().catch(e => {
+                    console.log('Audio autoplay prevented');
+                });
+            }
+            musicIcon.textContent = '🎵';
+            musicToggle.style.background = 'rgba(255, 255, 255, 0.3)';
+            isPlaying = true;
+        }
+    });
+}
 
-// Password Functionality for Lock Box
-const passwordInput = document.getElementById('password-input');
-const unlockBtn = document.getElementById('unlock-btn');
-const passwordSection = document.getElementById('password-section');
-const letterSection = document.getElementById('letter-section');
-
-// Correct password
-const correctPassword = 'tumnaam';
-
-// Unlock button event
-unlockBtn.addEventListener('click', function() {
-    const enteredPassword = passwordInput.value.toLowerCase().trim();
+// Password Functionality for Lock Box - wrapped in window.onload
+window.addEventListener('load', function() {
+    console.log('Window loaded, initializing password functionality...');
     
-    if (enteredPassword === correctPassword) {
-        // Correct password - show letter
-        passwordSection.style.display = 'none';
-        letterSection.style.display = 'block';
-        
-        // Re-initialize AOS for the new content
-        AOS.refresh();
-        
-        // Add celebration effect
-        showCelebration();
-    } else {
-        // Wrong password - shake effect
-        passwordInput.style.border = '2px solid #ff6b6b';
-        passwordInput.style.animation = 'shake 0.5s ease-in-out';
-        
-        setTimeout(() => {
-            passwordInput.style.border = 'none';
-            passwordInput.style.animation = '';
-            passwordInput.value = '';
-            passwordInput.placeholder = 'Galat password! Phir try karo...';
-        }, 500);
-        
-        setTimeout(() => {
-            passwordInput.placeholder = 'Password dalo...';
-        }, 2000);
-    }
-});
+    const passwordInput = document.getElementById('password-input');
+    const unlockBtn = document.getElementById('unlock-btn');
+    const passwordSection = document.getElementById('password-section');
+    const letterSection = document.getElementById('letter-section');
 
-// Enter key support for password input
-passwordInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        unlockBtn.click();
+    // Correct password
+    const correctPassword = 'tumnaam';
+
+    console.log('Password elements found:', {
+        passwordInput: !!passwordInput,
+        unlockBtn: !!unlockBtn,
+        passwordSection: !!passwordSection,
+        letterSection: !!letterSection
+    });
+
+    // Unlock button event
+    if (unlockBtn && passwordInput && passwordSection && letterSection) {
+        console.log('Adding event listeners...');
+        
+        unlockBtn.addEventListener('click', function() {
+            const enteredPassword = passwordInput.value.toLowerCase().trim();
+            console.log('Entered password:', enteredPassword, 'Expected:', correctPassword);
+            
+            if (enteredPassword === correctPassword) {
+                console.log('Password correct! Showing letter...');
+                // Correct password - show letter
+                passwordSection.style.display = 'none';
+                letterSection.style.display = 'block';
+                
+                // Re-initialize AOS for the new content
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh();
+                }
+                
+                // Add celebration effect
+                showCelebration();
+            } else {
+                console.log('Password incorrect!');
+                // Wrong password - shake effect
+                passwordInput.style.border = '2px solid #ff6b6b';
+                passwordInput.style.animation = 'shake 0.5s ease-in-out';
+                
+                setTimeout(() => {
+                    passwordInput.style.border = 'none';
+                    passwordInput.style.animation = '';
+                    passwordInput.value = '';
+                    passwordInput.placeholder = 'Galat password! Phir try karo...';
+                }, 500);
+                
+                setTimeout(() => {
+                    passwordInput.placeholder = 'Password dalo...';
+                }, 2000);
+            }
+        });
+
+        // Enter key support for password input
+        passwordInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                unlockBtn.click();
+            }
+        });
+    } else {
+        console.error('Password elements not found!', {
+            passwordInput: passwordInput,
+            unlockBtn: unlockBtn,
+            passwordSection: passwordSection,
+            letterSection: letterSection
+        });
     }
 });
 
