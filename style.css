@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gilroy';
+    font-family: 'Gilroy', Arial, sans-serif;
 }
 
 html,body{
@@ -15,48 +15,180 @@ body{
     align-items: center;
     justify-content: center;
     background-color: cornflowerblue;
+    padding: 20px;
 }
 
-#card{
-    height: 450px;
-    width: 300px;
-    border-radius: 10px;
+/* Carousel Container */
+.carousel-container {
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.section-title {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Carousel Wrapper */
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Carousel Track */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 500%; /* 5 cards * 100% */
+}
+
+/* Card Styles */
+.card {
+    flex: 0 0 20%; /* Each card takes 20% of track width (100% / 5 cards) */
+    height: 500px;
     background-color: white;
     padding: 30px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-#card img {
-    height: 55%;
+.card img {
+    height: 45%;
     width: 100%;
     object-fit: cover;
     object-position: center;
     border-radius: 10px;
+    margin-bottom: 15px;
 }
 
-#card h1{
-    font-size: 25px;
+.card h1{
+    font-size: 24px;
     font-weight: 700;
     margin: 10px 0;
+    color: #333;
 }
 
-#card h5 {
-    font-size: 25px;
-    color: red;
-    margin-bottom: 20px;
+.card h5 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 15px;
+    font-weight: 600;
 }
-#card button {
-    background-color: cadetblue;
-    color: #fff;
-    font-weight: 700;
-    padding: 12px 20px;
-    border-radius: 5px;
+
+.card p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* Navigation Buttons */
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255,255,255,0.9);
     border: none;
-    margin: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
-
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
-#card #remove {
-    background-color: #dadada;
-    color: #111;
+
+.nav-button:hover {
+    background-color: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.nav-button.prev {
+    left: 10px;
+}
+
+.nav-button.next {
+    right: 10px;
+}
+
+/* Dot Indicators */
+.dot-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    background-color: rgba(255,255,255,0.7);
+    transform: scale(1.1);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .carousel-container {
+        max-width: 320px;
+    }
+    
+    .card {
+        height: 450px;
+        padding: 20px;
+    }
+    
+    .card h1 {
+        font-size: 20px;
+    }
+    
+    .card h5 {
+        font-size: 18px;
+    }
+    
+    .card p {
+        font-size: 14px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .nav-button {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
 }
