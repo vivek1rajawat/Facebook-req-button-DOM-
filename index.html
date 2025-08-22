@@ -3,19 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request Button</title>
+    <title>A Journey of Us 💖</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="card">
-        <img src="https://images7.alphacoders.com/130/thumb-1920-1300590.png" alt="">
-        <h1>Naruto Uzumaki</h1>
-        <h5>Stranger</h5>
-        <div id="btn-container">
-            <button id="add">Add Friend</button>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-trail"></div>
+
+    <!-- Landing Page with Animated Door -->
+    <section id="landing-page" class="page active">
+        <div class="door-container">
+            <div class="door-left">
+                <div class="door-handle"></div>
+            </div>
+            <div class="door-right">
+                <div class="door-handle"></div>
+            </div>
+            <div class="door-content">
+                <h1>A world that belongs only to you 💖</h1>
+                <button id="enter-btn">Enter Our Story</button>
+            </div>
         </div>
-    </div>
+        <div class="sakura-petals"></div>
+    </section>
+
+    <!-- Storybook Container -->
+    <section id="storybook" class="page">
+        <div class="book-container">
+            <!-- Page 1 -->
+            <div class="story-page active" data-page="1">
+                <div class="page-content">
+                    <div class="page-left">
+                        <h2>Chapter 1</h2>
+                        <p class="story-text">The day I saw you… my heart knew 💕</p>
+                        <p class="diary-entry">In that moment when our eyes first met, time stood still. The world around us faded away, and all I could see was you. My heart whispered what my mind couldn't yet understand - that you were going to change everything.</p>
+                        <div class="hidden-note" data-message="You made me believe in love at first sight ✨">
+                            <span class="tap-hint">Tap to reveal a secret 💫</span>
+                        </div>
+                    </div>
+                    <div class="page-right">
+                        <div class="photo-container">
+                            <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=400&h=300&fit=crop" alt="Beautiful sunset" class="story-photo">
+                            <div class="photo-note">Our first moment together</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 2 -->
+            <div class="story-page" data-page="2">
+                <div class="page-content">
+                    <div class="page-left">
+                        <div class="photo-container">
+                            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&fit=crop" alt="Nature scene" class="story-photo">
+                            <div class="photo-note">Every walk with you feels like paradise</div>
+                        </div>
+                    </div>
+                    <div class="page-right">
+                        <h2>Chapter 2</h2>
+                        <p class="story-text">Your smile lights up my darkest days 🌟</p>
+                        <p class="diary-entry">Every laugh we share, every moment of silence we cherish together, builds the beautiful story that is uniquely ours. You've become the melody in my heart that never stops playing.</p>
+                        <div class="music-section">
+                            <button id="special-song-btn">🎵 Play this only for you</button>
+                            <audio id="special-song" preload="none">
+                                <source src="#" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Page -->
+            <div class="story-page" data-page="3">
+                <div class="page-content final-page">
+                    <div class="final-message">
+                        <h1>You are not just a part of my life…</h1>
+                        <h1>You are my entire story ❤️</h1>
+                        <div class="rotating-heart">💖</div>
+                        <div class="fireflies"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="book-navigation">
+            <button id="prev-page" class="nav-btn">‹ Previous</button>
+            <span class="page-indicator">Page <span id="current-page">1</span> of <span id="total-pages">3</span></span>
+            <button id="next-page" class="nav-btn">Next ›</button>
+        </div>
+    </section>
+
+    <!-- Background Music -->
+    <audio id="background-music" loop preload="none">
+        <source src="#" type="audio/mpeg">
+    </audio>
     
+    <div class="music-toggle">
+        <button id="music-toggle-btn">🎵</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
