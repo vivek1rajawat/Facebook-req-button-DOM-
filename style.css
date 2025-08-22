@@ -308,6 +308,7 @@ body {
     font-size: 0.9rem;
     color: #8b4513;
     font-style: italic;
+    pointer-events: none;
 }
 
 /* Hidden Notes */
